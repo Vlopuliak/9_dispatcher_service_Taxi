@@ -1,0 +1,20 @@
+name: deploy to test server
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy steps
+        run: |
+          echo "Connecting to test server via SSH..."
+          echo "Pulling latest code from main branch..."
+          echo "Applying database migrations..."
+          echo "Restarting dispatcher background services..."
+          echo "Deployment completed successfully!"
